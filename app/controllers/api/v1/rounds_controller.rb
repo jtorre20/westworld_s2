@@ -1,11 +1,12 @@
 class Api::V1::RoundsController < ApplicationController
   before_action :find_round, only: [:update]
   def index
-    @rounds = Round.all
+    @rounds = Round.all.sort_by{|round| round.score}.reverse[0...4]
     render json: @rounds
   end
 
   def update
+    
     @round.update(round_params)
     if @round.save
       render json: @round, status: :accepted
@@ -15,7 +16,7 @@ class Api::V1::RoundsController < ApplicationController
   end
 
   def create
-    new_round = Round.new(score: score, name: name)
+    new_round = Round.new(round_params)
     if new_round.save
       render json: new_round, status: :accepted
     else
