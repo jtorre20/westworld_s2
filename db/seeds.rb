@@ -5,4 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-dolores = Character.create(name: 'Dolores', consciousness: 10, url:'https://goo.gl/JyMLQR')
+# dolores = Character.create(name: 'Dolores', consciousness: 10, url:'https://goo.gl/JyMLQR')
+
+
+julio = Round.create(score: 400, name: "Julio")
+mor = Round.create(score: 600, name: "Mor")
+jerry = Round.create(score: 1, name: "Jerry")
+bruno = Round.create(score: 400, name: "Bruno")

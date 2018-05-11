@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20180507201439) do
 
   create_table "rounds", force: :cascade do |t|
     t.integer "score"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

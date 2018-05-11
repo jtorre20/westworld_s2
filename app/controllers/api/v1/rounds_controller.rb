@@ -15,7 +15,7 @@ class Api::V1::RoundsController < ApplicationController
   end
 
   def create
-    new_round = Round.new(round_params)
+    new_round = Round.new(score: score, name: name)
     if new_round.save
       render json: new_round, status: :accepted
     else
@@ -26,7 +26,7 @@ class Api::V1::RoundsController < ApplicationController
   private
 
   def round_params
-    params.permit(:score)
+    params.require(:round).permit(:score, :name)
   end
 
   def find_round
