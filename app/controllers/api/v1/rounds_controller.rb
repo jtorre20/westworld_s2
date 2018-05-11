@@ -14,10 +14,19 @@ class Api::V1::RoundsController < ApplicationController
     end
   end
 
+  def create
+    new_round = Round.new(round_params)
+    if new_round.save
+      render json: new_round, status: :accepted
+    else
+      render json: { errors: new_round.errors.full_messages }, status: :unprocessible_entity
+    end
+  end
+
   private
 
-  def character_params
-    params.permit(:character, :seconds, :status, :score)
+  def round_params
+    params.permit(:score)
   end
 
   def find_round

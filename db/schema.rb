@@ -24,9 +24,6 @@ ActiveRecord::Schema.define(version: 20180507201439) do
   end
 
   create_table "rounds", force: :cascade do |t|
-    t.string "character"
-    t.integer "seconds"
-    t.string "status"
     t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
